@@ -12,7 +12,7 @@ module "iks_cluster" {
 
   ip_pool = {
     use_existing = true
-    name         = "IAC-IWE-IP-POOL"
+    name         = "APO-FSO-IKS-IP-POOL"
   }
 
   sysconfig = {
@@ -57,7 +57,7 @@ module "iks_cluster" {
   # Infra Config Policy Information.
   infraConfigPolicy = {
     use_existing = true
-    policyName   = "IaC-IWE-VM-INFRA-CONFIG-2216"
+    policyName   = "APO-FSO-VM-INFRA-CONFIG-2201"
   }
 
   instance_type = {
@@ -81,4 +81,27 @@ module "iks_cluster" {
   # Organization and Tags.
   organization = var.organization
   tags         = var.tags
+  
+     addons       = [
+    {
+    use_existing = true
+    createNew = false
+    addonPolicyName = "smm-tf"
+    #addonName            = "smm"
+    #description       = "SMM Policy"
+    #upgradeStrategy  = "AlwaysReinstall"
+    #installStrategy  = "InstallOnly"
+    releaseVersion = "1.7.4-cisco4-helm3"
+    #overrides = yamlencode({"demoApplication":{"enabled":true}})
+    },
+    # {
+    # createNew = true
+    # addonName            = "ccp-monitor"
+    # description       = "monitor Policy"
+    # # upgradeStrategy  = "AlwaysReinstall"
+    # # installStrategy  = "InstallOnly"
+    # releaseVersion = "0.2.61-helm3"
+    # # overrides = yamlencode({"demoApplication":{"enabled":true}})
+    # }
+  ]
 }
