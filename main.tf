@@ -103,5 +103,5 @@ module "iks_cluster" {
     # releaseVersion = "0.2.61-helm3"
     # # overrides = yamlencode({"demoApplication":{"enabled":true}})
     # }
-  ]
+  #]
 }
