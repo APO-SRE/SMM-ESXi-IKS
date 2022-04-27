@@ -71,7 +71,7 @@ module "iks_cluster" {
     action              = var.action_type
     wait_for_completion = false
     worker_nodes        = 2
-    load_balancers      = 1
+    load_balancers      = 3
     worker_max          = 3
     control_nodes       = 1
     ssh_user            = "iksadmin"
@@ -82,18 +82,18 @@ module "iks_cluster" {
   organization = var.organization
   tags         = var.tags
   
-     addons       = [
-    {
-    use_existing = true
-    createNew = false
-    addonPolicyName = "smm-tf"
+    #addons       = [
+    #{
+    #use_existing = true
+    #createNew = false
+    #addonPolicyName = "smm-tf"
     #addonName            = "smm"
     #description       = "SMM Policy"
     #upgradeStrategy  = "AlwaysReinstall"
     #installStrategy  = "InstallOnly"
-    releaseVersion = "1.7.4-cisco4-helm3"
+    #releaseVersion = "1.7.4-cisco4-helm3"
     #overrides = yamlencode({"demoApplication":{"enabled":true}})
-    },
+    #},
     # {
     # createNew = true
     # addonName            = "ccp-monitor"
