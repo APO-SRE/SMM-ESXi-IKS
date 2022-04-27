@@ -70,9 +70,9 @@ module "iks_cluster" {
     name                = var.cluster_name
     action              = var.action_type
     wait_for_completion = false
-    worker_nodes        = 2
+    worker_nodes        = 3
     load_balancers      = 3
-    worker_max          = 3
+    worker_max          = 4
     control_nodes       = 1
     ssh_user            = "iksadmin"
     ssh_public_key      = var.sshkey
